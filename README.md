@@ -1,102 +1,58 @@
-# MERLIN — Voice Agent that Remembers You
+# MERLIN — Voice AI Agent with Persistent Memory
 
-Most AI agents forget everything after you stop talking.  
-**MERLIN doesn't.**
+> ⚠️ **Status: In Progress (Rebuild Phase)**
 
----
-
-### ⚡ TL;DR
-- Real-time voice agent com **memória persistente entre sessões (RAG)**
-- Resolve um problema real: **context loss em LLMs**
-- Pipeline assíncrono de **extração, estruturação e recuperação de memória**
-- Arquitetura pensada para **sistemas conversacionais escaláveis**
+MERLIN é um agente de voz em tempo real com memória de longo prazo, projetado para manter contexto entre sessões utilizando arquitetura baseada em RAG.
 
 ---
 
-### 💡 O Problema
-Agentes de voz baseados em LLM operam em um modelo **stateless**.
+## 🚧 Status Atual
 
-Quando a sessão termina:
-- Preferências do usuário são perdidas  
-- Contexto desaparece  
-- Interações não evoluem  
+Este projeto está atualmente em fase de **reconstrução da base de código**, com foco em:
 
-Resultado: experiências repetitivas e pouco inteligentes.
+- Reestruturação da arquitetura do agente
+- Otimização da camada de memória persistente
+- Refinamento do pipeline de processamento em tempo real
 
 ---
 
-### ✨ A Solução
-O **MERLIN** implementa uma arquitetura de **memória persistente baseada em RAG**:
+## 🧠 Proposta Técnica
 
-- Extrai insights estruturados das conversas  
-- Armazena em banco vetorial (**Mem0**)  
-- Reinjeta contexto relevante em novas sessões  
+O objetivo do MERLIN é resolver o problema de **context loss em agentes de voz**, através de:
 
-→ O agente **aprende, evolui e mantém continuidade cognitiva**
-
----
-
-### 🏗️ Arquitetura (Fluxo Simplificado)
-
-1. **Input**: voz em tempo real (LiveKit / WebRTC)  
-2. **Processamento**: LLM (Google Gemini)  
-3. **Memória (write)**: extração assíncrona → Mem0  
-4. **Memória (read)**: recuperação → injeção no contexto  
+- Persistência de memória entre sessões
+- Extração automática de insights
+- Injeção dinâmica de contexto em tempo real
 
 ---
 
-### 💎 Diferenciais Técnicos
+## 🏗️ Arquitetura Planejada
 
-- **Persistência via shutdown hook**  
-  Garante salvamento de memória mesmo em desconexões inesperadas  
-
-- **RAG aplicado a agentes conversacionais**  
-  Extende limitações de contexto dos LLMs  
-
-- **Pipeline assíncrono de insights**  
-  Processamento desacoplado do fluxo principal  
-
-- **Arquitetura orientada a ferramentas**  
-  Integração com Search, Email e APIs externas  
+- LiveKit → processamento de áudio em tempo real  
+- Gemini → interpretação e geração de linguagem  
+- Mem0 → armazenamento de memória vetorial  
+- Pipeline assíncrono → persistência no shutdown  
 
 ---
 
-### 🛠️ Stack
+## 📌 Roadmap
 
-- **Realtime:** LiveKit (WebRTC)  
-- **LLM:** Google Gemini  
-- **Memória:** Mem0 (Vector DB)  
-- **Linguagem:** Python (Asyncio)  
-
----
-
-### 🚀 Execução
-
-```bash
-pip install -r requirements.txt
-python agente.py
-```
+- [ ] Recriação do core do agente (LiveKit + Gemini)
+- [ ] Integração com camada de memória (Mem0)
+- [ ] Implementação de tool calling
+- [ ] Testes de persistência entre sessões
+- [ ] Deploy inicial
 
 ---
 
-### 📚 Aprendizados Técnicos
+## 🎯 Objetivo
 
-- Design de sistemas com memória para LLMs (RAG)
-- Processamento assíncrono em sistemas real-time
-- Transformação de dados não estruturados em conhecimento reutilizável
-- Gestão de ciclo de vida em agentes conversacionais
+Demonstrar construção de um sistema de IA capaz de:
 
----
-
-### 🎯 Para Recrutadores
-
-Este projeto demonstra:
-
-- Construção de sistemas de IA além de integrações simples
-- Capacidade de resolver limitações reais de LLMs
-- Pensamento arquitetural (memória, estado, escalabilidade)
-- Engenharia aplicada a cenários de produção
+- Operar em tempo real  
+- Manter estado entre sessões  
+- Evoluir com base em interações passadas  
 
 ---
 
-**Desenvolvido por Guilherme**
+**Status:** em desenvolvimento ativo
