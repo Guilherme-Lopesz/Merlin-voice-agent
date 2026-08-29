@@ -22,7 +22,8 @@ export default function Home() {
   const connectToMerlin = async () => {
     try {
       console.log('Buscando token no backend FastAPI...');
-      const res = await fetch('http://127.0.0.1:8000/api/token');
+      const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || "https://merlin-backend-gg1a.onrender.com";
+      const res = await fetch(`${backendUrl}/api/token`);
       const data = await res.json();
       
       if (data.token) {
@@ -33,7 +34,7 @@ export default function Home() {
       }
     } catch (err) {
       console.error('Erro ao conectar no backend:', err);
-      alert('Não foi possível conectar ao backend na porta 8000. Verifique se o FastAPI está ativo!');
+      alert('Não foi possível conectar ao backend. Verifique o console para mais detalhes.');
     }
   };
 
